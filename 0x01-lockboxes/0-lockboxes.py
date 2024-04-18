@@ -1,4 +1,6 @@
+#!/usr/bin/python3
 def canUnlockAll(boxes):
+    """function to search for keys to unlock boxes"""
     keysinboxes = {0}
     processedkeys = set()
     while True:
