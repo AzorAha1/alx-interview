@@ -3,11 +3,7 @@
 
 
 def minOperations(n):
-    """_summary_
-
-    Args:
-        n (_type_): _description_
-    """
+    """function to get min operations"""
     if n <= 1:
         return 0
     primefactorsofn = []
@@ -15,7 +11,7 @@ def minOperations(n):
         while n % i == 0:
             n //= i
             primefactorsofn.append(i)
-            if (n == 1):
+            if n == 1:
                 break
     operations = sum(primefactorsofn)
-    return operations    
+    return operations
