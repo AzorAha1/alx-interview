@@ -14,7 +14,7 @@ def minOperations(n):
         operations = 0
         while(n % i == 0):
             n //= i
-            operations+=i
+            operations += i
             if (n == 1):
                 break
     return operations
