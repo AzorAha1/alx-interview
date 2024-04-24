@@ -11,8 +11,12 @@ def minOperations(n):
     operations = 0
     if n <= 1:
         return 0
+    primefactorsofn = []
     for i in range(2, n+1):
         while(n % i == 0):
+            primefactorsofn.append(i)
             n = n // i
-            operations+=i
+    for primefactor in primefactorsofn:
+        if primefactor != 1:
+            operations += primefactor
     return operations
