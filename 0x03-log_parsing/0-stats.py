@@ -14,9 +14,9 @@ import signal
 def signal_handler(sig, frame):
     """this is the summary"""
     print(f'File size: {total_size}')
-    for code, count in count_status_code.items():
-        print(f'{code}: {count}')
-        print(f'File size: {total_size}')
+    for code in sorted(count_status_code.keys()):
+        if code in possible_statuscode:
+            print(f'{code}: {count_status_code[code]}')
     sys.exit(0)
 
 
@@ -31,18 +31,22 @@ linep = re.compile(
 line_counter = 0
 total_size = 0
 count_status_code = {code: 0 for code in possible_statuscode}
-while(True):
-    line = sys.stdin.readline().strip()
-    if linep.match(line):
-        file_size = linep.search(line).group(2)
-        status_code = int(linep.search(line).group(1))
-        total_size = total_size + int(file_size)
-        count_status_code[status_code] += 1
-        line_counter += 1
-        if line_counter == 10:
-            for code, count in count_status_code.items():
-                print(f'{code}: {count}')
-            print(f'File size: {total_size}')
-            line_counter = 0
-    else:
-        continue
+try:
+    for line in sys.stdin:
+        line = line.strip()
+        if linep.match(line):
+            file_size = linep.search(line).group(2)
+            status_code = int(linep.search(line).group(1))
+            total_size = total_size + int(file_size)
+            count_status_code[status_code] += 1
+            line_counter += 1
+            if line_counter == 10:
+                print(f'File size: {total_size}')
+                for code in sorted(count_status_code.keys()):
+                    if code in possible_statuscode:
+                        print(f'{code}: {count_status_code[code]}')
+                line_counter = 0
+        else:
+            continue
+except KeyboardInterrupt:
+    signal_handler(signal.SIGINT, None)
