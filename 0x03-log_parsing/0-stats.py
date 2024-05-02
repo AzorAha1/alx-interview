@@ -12,11 +12,7 @@ import signal
 
 
 def signal_handler(sig, frame):
-    """Summary
-    Args:
-        sig (_type_): _description_
-        frame (_type_): _description_
-    """
+    """this is the summary"""
     print(f'File size: {total_size}')
     for code, count in count_status_code.items():
         print(f'{code}: {count}')
