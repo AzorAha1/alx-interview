@@ -37,10 +37,10 @@ while(True):
         total_size = total_size + int(file_size)
         count_status_code[status_code] += 1
         line_counter += 1
-        print('line inputed')
-        if line_counter == 3:
+        if line_counter == 10:
             for code, count in count_status_code.items():
                 print(f'{code}: {count}')
             print(f'File size: {total_size}')
+            line_counter = 0
     else:
         continue
