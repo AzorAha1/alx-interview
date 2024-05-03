@@ -46,7 +46,5 @@ try:
                     if code in possible_statuscode:
                         print(f'{code}: {count_status_code[code]}')
                 line_counter = 0
-        else:
-            continue
 except KeyboardInterrupt:
     signal_handler(signal.SIGINT, None)
