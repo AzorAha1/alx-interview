@@ -27,15 +27,15 @@ try:
             if line_counter == 10:
                 line_counter = 0
                 print(f'File size: {total_size}')
-                for code in sorted(statuscode_dict):
-                    if statuscode_dict[code] != 0:
-                        print(f'{code}: {statuscode_dict[code]}')
+                for k,v in sorted(lines.items()):
+                    if v > 0:
+                        print(f'{k: v}')
 
 except KeyboardInterrupt:
     pass
 
 finally:
     print(f'File size: {total_size}')
-    for code in sorted(statuscode_dict):
-        if statuscode_dict[code] != 0:
-            print(f'{code}: {statuscode_dict[code]}')
+    for k,v in sorted(lines.items()):
+        if v > 0:
+            print(f'{k: v}')
