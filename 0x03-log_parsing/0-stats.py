@@ -27,6 +27,7 @@ try:
                 line_counter = 0
                 print(f'File size: {total_size}')
                 for k, v in sorted(statuscode_dict.items()):
+                    if v > 0:
                         print(f'{k}: {v}')
 
 except Exception:
@@ -35,4 +36,5 @@ except Exception:
 finally:
     print(f'File size: {total_size}')
     for k, v in sorted(statuscode_dict.items()):
-        print(f'{k}: {v}')
+        if v > 0:
+            print(f'{k}: {v}')
