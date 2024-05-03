@@ -35,8 +35,8 @@ try:
     for line in sys.stdin:
         line = line.strip()
         if linep.match(line):
-            file_size = linep.search(line).group(2)
             status_code = int(linep.search(line).group(1))
+            file_size = int(linep.search(line).group(2))
             total_size = total_size + int(file_size)
             count_status_code[status_code] += 1
             line_counter += 1
