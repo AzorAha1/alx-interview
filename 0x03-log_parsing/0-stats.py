@@ -20,7 +20,7 @@ try:
         if len(lines) > 4:
             status_code = lines[-2]
             file_size = int(lines[-1])
-            if status_code in statuscode_dict:
+            if status_code in statuscode_dict.keys():
                 statuscode_dict[status_code] += 1
             total_size += file_size
             line_counter += 1
