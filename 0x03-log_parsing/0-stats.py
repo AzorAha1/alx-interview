@@ -27,8 +27,8 @@ try:
             if line_counter == 10:
                 line_counter = 0
                 print(f'File size: {total_size}')
-                for k,v in sorted(statuscode_dict.items()):
-                    if v > 0:
+                for k, v in sorted(statuscode_dict.items()):
+                    if v != 0:
                         print(f'{k: v}')
 
 except KeyboardInterrupt:
@@ -36,6 +36,6 @@ except KeyboardInterrupt:
 
 finally:
     print(f'File size: {total_size}')
-    for k,v in sorted(statuscode_dict.items()):
-        if v > 0:
+    for k, v in sorted(statuscode_dict.items()):
+        if v != 0:
             print(f'{k: v}')
