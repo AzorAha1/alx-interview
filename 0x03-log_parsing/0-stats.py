@@ -28,7 +28,7 @@ try:
                 print(f'File size: {total_size}')
                 for k, v in sorted(statuscode_dict.items()):
                     if v != 0:
-                        print(f'{k: v}')
+                        print(f'{k}: {v}')
 
 except KeyboardInterrupt:
     pass
@@ -37,4 +37,4 @@ finally:
     print(f'File size: {total_size}')
     for k, v in sorted(statuscode_dict.items()):
         if v != 0:
-            print(f'{k: v}')
+            print(f'{k}: {v}')
