@@ -15,7 +15,6 @@ total_size = 0
 
 try:
     for line in sys.stdin:
-        line = line.strip()
         lines = line.split(" ")
         if len(lines) > 4:
             status_code = lines[-2]
