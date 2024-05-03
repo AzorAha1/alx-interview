@@ -10,7 +10,7 @@ import sys
 import re
 import signal
 
-
+linep = linep = re.compile(r'^\S+ - \[(\d{4}-\d{2}-\d{2})\] "GET \/projects\/\d+ HTTP\/1\.1" (\d{3}) (\d+)$')
 def signal_handler(sig, frame):
     """this is the summary"""
     print(f'File size: {total_size}')
@@ -22,7 +22,7 @@ def signal_handler(sig, frame):
 
 possible_statuscode = [200, 301, 400, 403, 404, 405, 500]
 signal.signal(signal.SIGINT, signal_handler)
-linep = linep = re.compile(r'^\S+ - \[(\d{4}-\d{2}-\d{2})\] "GET \/projects\/\d+ HTTP\/1\.1" (\d{3}) (\d+)$')
+# linep = linep = re.compile(r'^\S+ - \[(\d{4}-\d{2}-\d{2})\] "GET \/projects\/\d+ HTTP\/1\.1" (\d{3}) (\d+)$')
 
 line_counter = 0
 total_size = 0
