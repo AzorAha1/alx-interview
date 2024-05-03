@@ -19,8 +19,8 @@ def signal_handler(sig, frame):
 def print_stats():
     """print stats"""
     print(f'File size: {total_size}')
-    for code in sorted(count_status_code.keys()):
-        if count_status_code[code] > 0:
+    for code in sorted(possible_statuscode):
+        if code in count_status_code and count_status_code[code] > 0:
             print(f'{code}: {count_status_code[code]}')
 possible_statuscode = [200, 301, 400, 403, 404, 405, 500]
 signal.signal(signal.SIGINT, signal_handler)
@@ -40,6 +40,8 @@ try:
             if line_counter == 10:
                 print_stats()
                 line_counter = 0
+        else:
+            continue
 except KeyboardInterrupt:
     signal_handler(signal.SIGINT, None)
 finally:
