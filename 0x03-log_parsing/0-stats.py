@@ -23,7 +23,7 @@ try:
                 statuscode_dict[status_code] += 1
             total_size += file_size
             line_counter += 1
-            if line_counter == 10:
+            if line_counter % 10 == 0:
                 line_counter = 0
                 print(f'File size: {total_size}')
                 for k, v in sorted(statuscode_dict.items()):
