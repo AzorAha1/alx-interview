@@ -27,14 +27,12 @@ try:
                 line_counter = 0
                 print(f'File size: {total_size}')
                 for k, v in sorted(statuscode_dict.items()):
-                    if v != 0:
                         print(f'{k}: {v}')
 
-except KeyboardInterrupt:
+except Exception:
     pass
 
 finally:
     print(f'File size: {total_size}')
     for k, v in sorted(statuscode_dict.items()):
-        if v != 0:
-            print(f'{k}: {v}')
+        print(f'{k}: {v}')
