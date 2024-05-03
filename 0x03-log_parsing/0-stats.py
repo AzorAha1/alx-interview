@@ -30,7 +30,7 @@ try:
                     if v > 0:
                         print(f'{k}: {v}')
 
-except Exception:
+except KeyboardInterrupt:
     pass
 
 finally:
