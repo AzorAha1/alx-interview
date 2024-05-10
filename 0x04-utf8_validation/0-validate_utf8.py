@@ -14,7 +14,7 @@ def validUTF8(data):
     numberofbytes = 0
     for bytes in data:
         if numberofbytes == 0:
-            if bytes >> 5 == 0b110:
+            if bytes >> 5 == 0b110 or bytes >> 5 == 0b1110:
                 numberofbytes = 1
             elif bytes >> 4 == 0b1110:
                 numberofbytes = 2
