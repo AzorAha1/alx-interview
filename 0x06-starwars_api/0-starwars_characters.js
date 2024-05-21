@@ -15,7 +15,7 @@ request.get(thefilms, async (error, response, body) => {
     await new Promise((resolve, reject) => {
       request.get(url, (error, response, body) => {
         if (error) {
-          resolve(error);
+          reject(error);
         }
         const eachcharacter = JSON.parse(body);
         console.log(eachcharacter.name);
