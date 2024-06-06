@@ -6,6 +6,7 @@ def makeChange(coins, total):
     """make changes"""
     if total <= 0:
         return 0
+    coins.sort(reverse=True)
     listformin = [float('inf')] * (total + 1)
     listformin[0] = 0
     for i in range(1, total + 1):
