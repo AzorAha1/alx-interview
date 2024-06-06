@@ -4,7 +4,7 @@
 
 def makeChange(coins, total):
     """make changes"""
-    if total < 1:
+    if total <= 0:
         return 0
     listformin = [float('inf')] * (total + 1)
     listformin[0] = 0
