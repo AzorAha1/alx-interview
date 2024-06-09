@@ -15,6 +15,7 @@
 #                     listformin[i] = min(listformin[i], 1 + listformin[i - coi])
 #     return -1 if listformin[total] == float('inf') else listformin[total]
 def makeChange(coins, total):
+    """make changes"""
     if total <= 0:
         return 0
     dp = [float('inf')] * (total + 1)
