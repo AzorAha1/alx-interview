@@ -17,26 +17,28 @@ def isWinner(x, nums):
     maria_wins = 0
     ben_wins = 0
 
-    for i in nums:
-        prime_nums = [num for num in range(2, i + 1) if is_prime(num)]
+    for n in nums:
+        prime_nums = [num for num in range(2, n + 1) if is_prime(num)]
         current_player = 'Maria'
-        remainingnums = list(range(1, i + 1))
+        remaining_nums = list(range(1, n + 1))
+
         while True:
-            player = 'Maria' if current_player else 'Ben'
+            player = current_player
             chosen_prime = None
+
             for prime in prime_nums:
-                if prime in remainingnums:
+                if prime in remaining_nums:
                     chosen_prime = prime
                     break
+
             if not chosen_prime:
                 if player == 'Maria':
                     ben_wins += 1
                 else:
                     maria_wins += 1
                 break
-            remainingnums = [
-                num for num in remainingnums if num % chosen_prime != 0
-                ]
+
+            remaining_nums = [num for num in remaining_nums if num % chosen_prime != 0]
             current_player = 'Maria' if current_player == 'Ben' else 'Ben'
 
     if maria_wins > ben_wins:
