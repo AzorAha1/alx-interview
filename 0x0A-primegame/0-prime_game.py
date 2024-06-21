@@ -38,7 +38,9 @@ def isWinner(x, nums):
                     maria_wins += 1
                 break
 
-            remaining_nums = [num for num in remaining_nums if num % chosen_prime != 0]
+            remaining_nums = [
+                num for num in remaining_nums if num % chosen_prime != 0
+                ]
             current_player = 'Maria' if current_player == 'Ben' else 'Ben'
 
     if maria_wins > ben_wins:
